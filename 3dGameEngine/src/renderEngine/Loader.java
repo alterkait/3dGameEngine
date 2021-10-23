@@ -16,6 +16,8 @@ import org.lwjgl.opengl.GL30;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 
+import models.RawModel;
+
 public class Loader {
 	
 	private List<Integer> vaos = new ArrayList<Integer>();
