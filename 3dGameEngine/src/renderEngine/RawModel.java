@@ -3,19 +3,19 @@ package renderEngine;
 public class RawModel {
 	
 	private int vaoID;
-	private int vertextCount;
+	private int vertexCount;
 	
 	public RawModel(int vaoID, int vertexCount) {
 		this.vaoID = vaoID;
-		this.vertextCount = vertexCount;
+		this.vertexCount = vertexCount;
 	}
 
 	public int getVaoID() {
 		return vaoID;
 	}
 
-	public int getVertextCount() {
-		return vertextCount;
+	public int getVertexCount() {
+		return vertexCount;
 	}
 	
 
