@@ -12,6 +12,7 @@ public class MainGameLoop {
 		
 		DisplayManager.createDisplay();
 		System.err.println("Game is Running Fine!");
+		System.out.println("Hello Git");
 		
 		Loader loader = new Loader();
 		
