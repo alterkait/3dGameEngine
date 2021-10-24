@@ -18,8 +18,15 @@ public class Renderer {
 	private static final float FOV = 70;
 	private static final float NEAR_PLANE = 0.1f;
 	private static final float FAR_PLANE = 1000;
+	
 	private Matrix4f projectionMatrix;
 	
+	public Renderer(StaticShader shader) {
+		createProjectionMatrix();
+		shader.start();
+		shader.loadProjectionMatrix(projectionMatrix);
+		shader.stop();
+	}
 	
 	public void prepare() {
 		GL11.glClearColor(1, 0, 0, 1);
