@@ -52,6 +52,9 @@ public class MainGameLoop {
 		Entity entity = new Entity(staticModel, new Vector3f(-1,0,0),0,0,0,1);
 		
 		while(!Display.isCloseRequested()) {
+			entity.increasePosition(0, 0, -0.005f);
+			
+			
 			renderer.prepare();
 			shader.start();
 			renderer.render(entity, shader);

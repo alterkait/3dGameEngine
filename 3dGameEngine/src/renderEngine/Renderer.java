@@ -14,6 +14,12 @@ import toolbox.Mathematics;
 
 public class Renderer {
 	
+	private static final float FOV = 70;
+	private static final float NEAR_PLANE = 0.1f;
+	private static final float FAR_PLANE = 1000;
+	private Matrix4f projectionMatrix;
+	
+	
 	public void prepare() {
 		GL11.glClearColor(1, 0, 0, 1);
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
@@ -34,6 +40,10 @@ public class Renderer {
 		GL20.glDisableVertexAttribArray(0);
 		GL20.glDisableVertexAttribArray(1);
 		GL30.glBindVertexArray(0);
+	}
+	
+	private void createProjectionMatrix() {
+		
 	}
 
 }
