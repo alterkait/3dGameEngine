@@ -5,6 +5,7 @@ import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
 import models.RawModel;
+import models.TexturedModel;
 
 public class Renderer {
 	
@@ -13,7 +14,9 @@ public class Renderer {
 		GL11.glClearColor(0.26f, 0.79f, 0.83f, 1);
 	}
 	
-	public void render(RawModel model) {
+	public void render(TexturedModel texturedModel) {
+		RawModel model = texturedModel.getRawModel();
+		
 		GL30.glBindVertexArray(model.getVaoID());
 		
 		GL20.glEnableVertexAttribArray(0);
