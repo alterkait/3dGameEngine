@@ -21,12 +21,15 @@ public class MainGameLoop {
 				0.5f, -0.5f, 0.0f,	//right bottom
 				-0.5f, 0.5f, 0.0f,	//left top
 				
-				-0.5f, 0.5f, 0.0f,	//left top
-				0.5f, -0.5f, 0.0f,	//right bottom
 				0.5f, 0.5f, 0.0f	//top right
 		};
 		
-		RawModel model = loader.loadToVAO(vertices);
+		int[] indices = {
+				0,1,2,
+				2,3,1
+		};
+		
+		RawModel model = loader.loadToVAO(vertices, indices);
 		
 		while(!Display.isCloseRequested()) {
 			renderer.prepare();

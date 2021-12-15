@@ -7,9 +7,8 @@ import org.lwjgl.opengl.GL30;
 public class Renderer {
 	
 	public void prepare() {
-		GL11.glClearColor(0.26f, 0.79f, 0.83f, 1);
-		
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+		GL11.glClearColor(0.26f, 0.79f, 0.83f, 1);
 	}
 	
 	public void render(RawModel model) {
@@ -17,7 +16,7 @@ public class Renderer {
 		
 		GL20.glEnableVertexAttribArray(0);
 		
-		GL11.glDrawArrays(GL11.GL_TRIANGLES, 0, model.getVertexCount());
+		GL11.glDrawElements(GL11.GL_TRIANGLES, model.getVertexCount(), GL11.GL_UNSIGNED_INT, 0);
 		
 		GL20.glDisableVertexAttribArray(0);
 		
