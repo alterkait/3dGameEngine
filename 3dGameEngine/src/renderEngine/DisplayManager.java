@@ -24,6 +24,7 @@ public class DisplayManager {
 			Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
 			Display.create(new PixelFormat(), attribs);
 			Display.setTitle("AlTerkait's Game Engine");
+			System.out.println("Working fine");
 		} catch (LWJGLException e) {
 			e.printStackTrace();
 		}
