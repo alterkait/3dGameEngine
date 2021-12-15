@@ -5,8 +5,10 @@ import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
+import entities.Entity;
 import models.RawModel;
 import models.TexturedModel;
+import shaders.StaticShader;
 
 public class Renderer {
 	
@@ -15,19 +17,21 @@ public class Renderer {
 		GL11.glClearColor(0.26f, 0.79f, 0.83f, 1);
 	}
 	
-	public void render(TexturedModel texturedModel) {
-		RawModel model = texturedModel.getRawModel();
+	public void render(Entity entity, StaticShader shader) {
+		TexturedModel model = entity.getModel();
 		
-		GL30.glBindVertexArray(model.getVaoID());
+		RawModel rawModel = model.getRawModel();
+		
+		GL30.glBindVertexArray(rawModel.getVaoID());
 		
 		GL20.glEnableVertexAttribArray(0);
 		GL20.glEnableVertexAttribArray(1);
 		
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);
 		
-		GL11.glBindTexture(GL11.GL_TEXTURE_2D, texturedModel.getTexture().getID());
+		GL11.glBindTexture(GL11.GL_TEXTURE_2D, model.getTexture().getID());
 		
-		GL11.glDrawElements(GL11.GL_TRIANGLES, model.getVertexCount(), GL11.GL_UNSIGNED_INT, 0);
+		GL11.glDrawElements(GL11.GL_TRIANGLES, rawModel.getVertexCount(), GL11.GL_UNSIGNED_INT, 0);
 		
 		GL20.glDisableVertexAttribArray(0);
 		GL20.glDisableVertexAttribArray(1);
