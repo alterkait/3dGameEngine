@@ -23,6 +23,7 @@ public class DisplayManager {
 		try {
 			Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
 			Display.create(new PixelFormat(), attribs);
+			Display.setTitle("AlTerkait's Game Engine");
 		} catch (LWJGLException e) {
 			e.printStackTrace();
 		}
