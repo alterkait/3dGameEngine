@@ -21,16 +21,16 @@ public class MainGameLoop {
 		
 		//THE DATA
 		float[] vertices = {
-				-0.5f, -0.5f, 0.0f,	//left bottom
-				0.5f, -0.5f, 0.0f,	//right bottom
-				-0.5f, 0.5f, 0.0f,	//left top
+				-0.5f, 0.5f, 0.0f,	//v0
+				-0.5f, -0.5f, 0.0f,	//v1
+				0.5f, -0.5f, 0.0f,	//v2
 				
-				0.5f, 0.5f, 0.0f	//top right
+				0.5f, 0.5f, 0.0f	//v3
 		};
 		
 		int[] indices = {
-				0,1,2,
-				2,3,1
+				0,1,3,		//v0 v1 v3		top left triangle
+				3,1,2		//v3 v1 v2		bottom right triangle
 		};
 		
 		float[] textureCoords = {
@@ -41,7 +41,7 @@ public class MainGameLoop {
 		};
 		
 		RawModel model = loader.loadToVAO(vertices, textureCoords, indices);
-		ModelTexture texture = new ModelTexture(loader.loadTexture("IMAGE"));
+		ModelTexture texture = new ModelTexture(loader.loadTexture("test_image"));
 		TexturedModel texturedModel = new TexturedModel(model, texture);
 		
 		while(!Display.isCloseRequested()) {
