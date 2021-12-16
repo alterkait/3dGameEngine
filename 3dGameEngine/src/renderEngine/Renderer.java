@@ -4,11 +4,13 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
+import org.lwjgl.util.vector.Matrix4f;
 
 import entities.Entity;
 import models.RawModel;
 import models.TexturedModel;
 import shaders.StaticShader;
+import toolbox.Mathematics;
 
 public class Renderer {
 	
@@ -26,6 +28,11 @@ public class Renderer {
 		
 		GL20.glEnableVertexAttribArray(0);
 		GL20.glEnableVertexAttribArray(1);
+		
+		Matrix4f transformationMatrix = Mathematics.createTransformationMatrix(entity.getPosition(),
+				entity.getRotX(), entity.getRotY(), entity.getRotZ(), entity.getScale());
+		
+		shader.loadTransformationMatrix(transformationMatrix);
 		
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);
 		
