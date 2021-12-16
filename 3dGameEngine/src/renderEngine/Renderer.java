@@ -31,7 +31,8 @@ public class Renderer {
 	}
 	
 	public void prepare() {
-		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+		GL11.glEnable(GL11.GL_DEPTH_TEST);
+		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
 		GL11.glClearColor(0.26f, 0.79f, 0.83f, 1);
 	}
 	
