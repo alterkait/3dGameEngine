@@ -11,6 +11,7 @@ import entities.Entity;
 import models.RawModel;
 import models.TexturedModel;
 import shaders.StaticShader;
+import textures.ModelTexture;
 import toolbox.Mathematics;
 
 public class Renderer {
@@ -50,6 +51,9 @@ public class Renderer {
 		Matrix4f transformationMatrix = Mathematics.createTransformationMatrix(entity.getPosition(),
 				entity.getRotX(), entity.getRotY(), entity.getRotZ(), entity.getScale());
 		
+		ModelTexture texture = model.getTexture();
+		
+		shader.loadShineVariables(texture.getShineDamper(), texture.getReflectivity());
 		shader.loadTransformationMatrix(transformationMatrix);
 		
 		GL13.glActiveTexture(GL13.GL_TEXTURE0);
