@@ -24,10 +24,10 @@ public class MainGameLoop {
 		Renderer renderer = new Renderer(shader);
 		
 		//THE DATA
-		RawModel model = OBJLoader.loadOBJModel("stall", loader);
+		RawModel model = OBJLoader.loadOBJModel("dragon", loader);
 		
-		TexturedModel staticModel = new TexturedModel(model, new ModelTexture(loader.loadTexture("stallTexture")));
-		Entity entity = new Entity(staticModel, new Vector3f(0,0,-10),0,0,0,1);
+		TexturedModel staticModel = new TexturedModel(model, new ModelTexture(loader.loadTexture("whiteTexture")));
+		Entity entity = new Entity(staticModel, new Vector3f(0,0,-39),0,0,0,1);
 		Camera camera = new Camera();
 		
 		while(!Display.isCloseRequested()) {
@@ -50,6 +50,8 @@ public class MainGameLoop {
 		shader.cleanUp();
 		loader.cleanUp();
 		DisplayManager.closeDisplay();
+		
+		
 
 	}
 
